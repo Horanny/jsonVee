@@ -33,7 +33,7 @@ module.exports = {
         target: `http://localhost:${proxyPort}`,
         changeOrigin: true,
         pathRewrite: {
-          '^/api': '/api'//入参代理的Url
+          '^/api': ''//入参代理的Url
         }
       },
     },

@@ -48,11 +48,13 @@ class BaseRouter{
      * 拦截请求添加参数校验
      * @param {*} app Express上下文
      */
-    static interceptorHttp(app){
+    static ptorHttp(app){
 
+        //得到当前目录下的所有路由
         const routers = BaseRouter._getRouters();
 
         app.use(expressValidator({}));
+        //console.log(routers);
 
         routers.forEach((item,index)=>{
             BaseRouter._dispatchHttp(app,item);
@@ -66,6 +68,8 @@ class BaseRouter{
      */
     static _dispatchHttp(app,config){
         let method = config.method || "get";
+        //为啥进不去这个函数？？？？
+        //console.log(config.path);
         app[method](config.path, config.params, (req, res, next) => {
                 //参数校验，如果有异常就抛出。
                 const errors = validationResult(req);
@@ -81,7 +85,6 @@ class BaseRouter{
                         req.query[key] = BaseRouter._doHtmlUnEncode(value);
                     }
                 } */
-              
                 config.handler(req, res, next);
 
           });
