@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routes from './routers';
@@ -37,3 +38,26 @@ const router = new VueRouter({
 new Vue({
     router
 }).$mount(`#app-wrapper`); 
+=======
+import {createApp} from 'vue';
+import {createRouter, createWebHashHistory} from 'vue-router';
+import routes from './routers';
+import * as d3 from "d3";
+import 'assets/css/main.less';
+import VirtualList from 'vue-virtual-list-v3';
+
+window.d3 = d3;
+
+const router = createRouter({
+    history: createWebHashHistory(),
+    routes
+});
+const myApp = createApp({
+    el: '#app-wrapper',
+});
+
+myApp.use(router);
+myApp.use(VirtualList);
+
+myApp.mount("#app-wrapper");
+>>>>>>> af29a96d00ddc1e80042e66c55a820564a055747

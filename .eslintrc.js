@@ -41,11 +41,13 @@ module.exports = {
         "no-control-regex": "off",
         "comma-style": ["error", "last"],
         "computed-property-spacing": ["error", "never"],
-        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "no-console": "off",
+        "no-debugger": "off",
         "no-alert": "error",
         "no-dupe-args": "error",
         "no-duplicate-case": "error",
         "no-duplicate-imports": "error",
-        "no-empty": "error"
+        "no-empty": "error",
+        "vue/no-lone-template": "off"
     }
-}
+};
